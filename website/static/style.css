@@ -11,3 +11,16 @@ body {
 
 </body>
 </html> */
+/* Add your styling here */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+input[type="text"] {
+  margin: 10px 0;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}

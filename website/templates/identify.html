@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bug Bite Identifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bug Bite Identifier</h1>
+    <!-- <form action="/" method="post" enctype="multipart/form-data">
+        <input type="text" name="image_url" placeholder="Enter Image URL" required>
+        <input type="submit" value="Identify">
+    </form> -->
+    <form action="/pic" method="post" enctype="multipart/form-data">
+        <input type="text" name="image_url" placeholder="Enter Image URL" required>
+        <input type="submit" value="Identify">
+    </form>
+    
+    {% if prediction %}
+        <h2>Predicted output: {{ prediction }}</h2>
+        <img src="{{ image_url }}" alt="Bug Bite Image">
+    {% endif %}
+</body>
+</html>
