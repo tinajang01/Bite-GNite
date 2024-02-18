@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bite GoodNite</title>
     <style>
+      @font-face {
+        font-family: 'gamey';
+        src: url('/static/gameyfont.woff') format('woff'),
+        url('/static/gameyfont.TTF') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'contenty';
+        src: url('/static/contentfont.TTF') format('truetype');
+        font-display: swap;
+}
       body {
-        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208451868167110656/file-0v7XVYHDpW0QUzX2tM4cbwIE.png?ex=65e35581&is=65d0e081&hm=94051762874c9a18ff7ff82007ebb0675ab76aa2464735ed8bbd81d4b25ce1ab&");
+        background-image: url("https://cdn.discordapp.com/attachments/745380022658924554/1208668709267177503/file-E849YQosyYo1bOdMSDSKO0PQ.png?ex=65e41f74&is=65d1aa74&hm=4c4d04aa2eb7d90f8905169968e54bdcad28a7846ccaaf132a9944514485bd95&");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -17,22 +28,76 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Arial, sans-serif;
+        font-family: gamey;
     }
 
-    button {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      margin: 10px;
-      padding: 10px 40px;
+    .button-container {
+      position: absolute; /* Enables precise positioning */ 
+      top: 75%;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
     }
+    button {
+      
+      font-family: gamey;
+      font-size: 3em;
+      background-image: url('https://cdn.discordapp.com/attachments/1208236684081107005/1208623786199617536/eadc07619779c30133ca19bbdf888695.png?ex=65e3f59d&is=65d1809d&hm=ba5ed5c3b1ff689c286d2285b82a874d9427dff873dd5305320803dc23927462&');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150% 150%; /* Scales the image larger than its container */
+      display: inline-block;
+      color: brown;
+      margin: 0px 20;
+      padding: 10px 15px;
+      border-radius: 4%;
+      border: 4px solid brown;
+    }
+
+  .nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: orange; /* Navigation bar background */
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.nav-button {
+  font-family: 'contenty', sans-serif;
+  font-size: 1em; /* Adjusted size for nav buttons */
+  background-color: yellow; /* Nav button background color */
+  color: brown; /* Text color */
+  margin: 0 10px; /* Adjust spacing between nav buttons */
+  padding: 5px 10px; /* Adjust padding */
+  border: 2px solid brown; /* Border for definition */
+  border-radius: 4%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: orange; /* Hover effect */
+  color: white; /* Text color change on hover */
+}
     </style>
+    <nav class="nav-bar">
+      <a href="http://127.0.0.1:5000/identifybite"><button class="nav-button">Upload image of Bite</button></a>
+      <a href="http://127.0.0.1:5000/infobug"><button class="nav-button">Bug Catalogue</button></a>
+      <a href="http://127.0.0.1:5000/personality_quiz"><button class="nav-button">Personality Quiz</button></a>
+    </nav>
+    
 </head>
 
 <body>
-  <a href="http://127.0.0.1:5000/identifybite"><button type="button">Upload your bug bite!</button></a>
+  <div class="button-container">
+  <a href="http://127.0.0.1:5000/identifybite"><button type="button">What bit me?!</button></a>
   <a href="http://127.0.0.1:5000/personality_quiz"><button type="button">Find your match!</button></a>
   <a href="http://127.0.0.1:5000/infobug"><button type="button">What bug is this?</button></a>
+  </div>
 </body>
 
 </html>
