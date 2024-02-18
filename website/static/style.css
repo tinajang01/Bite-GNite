@@ -12,27 +12,76 @@ body {
 </body>
 </html> */
 /* Add your styling here */
+
 @font-face {
   font-family: 'gamey';
-  src: url(C:\Users\jessi\Documents\1-BiteGnite\Bite-GNite\assets\gameyfont.TTF) format('truetype');
-  font-display: swap; /* Improves text visibility while custom fonts are loading */
+  src: url('gameyfont.woff') format('woff'),
+    url('gameyfont.TTF') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'contenty';
+  src: url('contentfont.TTF') format('truetype');
+  font-display: swap;
 }
 
 body {
-  font-family: gamey, sans-serif;
+  font-family: gamey;
   text-align: center;
-  background-image: url('https://cdn.discordapp.com/attachments/745380022658924554/1208593632534470706/c4da0cbf-5bd7-46d3-8507-9768360d2ca6.webp?ex=65e3d988&is=65d16488&hm=6be82d672ed8f14cb418fb7ba2e914000de337f9eae669de6776fccf7ff30c64&');
+  background-image: url('https://cdn.discordapp.com/attachments/745380022658924554/1208600383937708104/file-grothEl29CyZKcOBvB5QLDgD.png?ex=65e3dfd2&is=65d16ad2&hm=9cc4e486399d8a4c050f24d5582b2879e4454cb29db911d9926cf8f864357d5b&');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
+  color:brown;
+  padding-top: 50px; /* Shifts all elements down */
 }
 
+h1 {
+  font-size: 3em;
+  background-image: url('https://cdn.discordapp.com/attachments/1208236684081107005/1208623786199617536/eadc07619779c30133ca19bbdf888695.png?ex=65e3f59d&is=65d1809d&hm=ba5ed5c3b1ff689c286d2285b82a874d9427dff873dd5305320803dc23927462&');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150% 150%; /* Scales the image larger than its container */
+  display: inline-block;
+  color: brown;
+  margin: 15px 0;
+  padding: 10px 15px;
+}
 
-input[type="text"] {
-  margin: 10px 0;
+input[type="text"], input[type="submit"] {
+  display: block; /* Makes input block level for easier centering */
+  width: 400px; /* Increases size of input box */
+  height: 60px; /* Adjust height of input box */
+  margin: 30px auto; /* Centers input and adds spacing */
+  font-family: contenty;
+  font-size: 1.5em; /* Increases font size in input */
+  padding: 10px;
 }
 
 input[type="submit"] {
+  background-color: yellow; /* Changes button color to yellow */
+  color: orange; /* Changes button text color to black for contrast */
+  border: 3px solid orange; /* Adjusts border color */
   cursor: pointer;
+  border-radius: 15px;
+}
+
+img {
+  width: 150px; /* Adjust based on your preference */
+  height: 150px; /* Adjust based on your preference */
+  object-fit: cover;
+  margin-top: 20px; /* Added for spacing above images */
+  display: block; /* Makes the image a block-level element */
+  margin-left: auto; /* With margin-right: auto, centers the image */
+  margin-right: auto;
+}
+
+.bod {
+  background-image: url('https://cdn.discordapp.com/attachments/1208236684081107005/1208623786199617536/eadc07619779c30133ca19bbdf888695.png?ex=65e3f59d&is=65d1809d&hm=ba5ed5c3b1ff689c286d2285b82a874d9427dff873dd5305320803dc23927462&');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150% 150%; 
+  margin: 15px 0;
+  padding: 10px 15px;
 }
