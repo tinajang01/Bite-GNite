@@ -15,7 +15,7 @@ def home():
         try:
             url=request.form['image_url']
             img=imread(url)
-            img=resize(img, (30,30,3), anti-aliasing=True)
+            img=resize(img, (30,30,3))
             flat_data=[img.flatten()]
             flat_data=np.array(flat_data)
             y_out=model.predict(flat_data)
