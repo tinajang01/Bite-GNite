@@ -1,12 +1,16 @@
 from flask import Blueprint, render_template, request
 import pickle
 import numpy as np
+import os
 from skimage.io import imread
 from skimage.transform import resize
 
 views = Blueprint('views',__name__)
 
-model = pickle.load(open('model.p','rb'))
+model_path = os.path.join(os.path.dirname(__file__), '..', 'model.p')
+model = pickle.load(open(model_path, 'rb'))
+
+# model = pickle.load(open('model.p','rb'))
 categories = ['flea', 'mosquito', 'tick']
 
 @views.route('/', methods=['GET', 'POST'])
@@ -25,3 +29,4 @@ def home():
             return render_template('home.html', error=str(e))
     else:
         return render_template('home.html')
+    
