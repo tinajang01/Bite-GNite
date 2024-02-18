@@ -13,8 +13,12 @@ model = pickle.load(open(model_path, 'rb'))
 # model = pickle.load(open('model.p','rb'))
 categories = ['flea', 'mosquito', 'tick']
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/')
 def home():
+    return render_template("home.html")
+
+@views.route('/identify-by-pic', methods=['GET', 'POST'])
+def identify():
     if request.method =='POST':
         try:
             url=request.form['image_url']
@@ -24,9 +28,9 @@ def home():
             flat_data=np.array(flat_data)
             y_out=model.predict(flat_data)
             category=categories[y_out[0]]
-            return render_template("home.html", prediction=category, image_url=url)
+            return render_template("identify.html", prediction=category, image_url=url)
         except Exception as e:
-            return render_template('home.html', error=str(e))
+            return render_template('identify.html', error=str(e))
     else:
-        return render_template('home.html')
+        return render_template('identify.html')
     
