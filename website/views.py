@@ -24,9 +24,9 @@ def home():
             flat_data=np.array(flat_data)
             y_out=model.predict(flat_data)
             category=categories[y_out[0]]
-            return render_template("home.html", prediction=category, image_url=url)
+            return render_template("base.html", prediction=category, image_url=url)
         except Exception as e:
-            return render_template('home.html', error=str(e))
+            return render_template('base.html', error=str(e))
     else:
-        return render_template('home.html')
+        return render_template('base.html')
     
