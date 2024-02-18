@@ -122,53 +122,60 @@
 </div>
 
 <script>
-    var scores = [0, 0, 0, 0, 0, 0]; // Initialize scores for each bug
+    var totalScore = 0; // Initialize total score outside of selectAnswer to keep track globally
 
     function selectAnswer(score, button) {
-        // Remove selected class from all options in the same question
-        var answerOptions = button.parentElement.getElementsByClassName('answer-option');
-        for (var i = 0; i < answerOptions.length; i++) {
-            answerOptions[i].classList.remove('selected');
+        // Reset selection for the current question if another option was previously selected
+        var siblings = button.parentElement.getElementsByClassName('answer-option');
+        for (var i = 0; i < siblings.length; i++) {
+            if (siblings[i].classList.contains('selected')) {
+                // Subtract the score of the previously selected answer from the totalScore
+                totalScore -= parseInt(siblings[i].getAttribute('data-value'));
+                siblings[i].classList.remove('selected');
+            }
         }
 
-        // Add selected class to the clicked option
-        button.classList.add('selected');
+        // Add the selected answer's value to the totalScore
+        totalScore += score;
 
-        // Update the score for the bug based on the selected option
-        scores[score - 1]++;
+        // Mark the current button as selected
+        button.classList.add('selected');
     }
 
     function submitQuiz(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent form from submitting traditionally
         showResult();
     }
 
     function showResult() {
         var resultDiv = document.getElementById('result');
-        var bugMatch = document.getElementById('bug-match');
-        var totalScore = scores.reduce((a, b) => a + b, 0);
+        var bugMatchText = document.getElementById('bug-match');
 
-        if (totalScore >= 3 || totalScore <= 4) {
-            bugMatch.textContent = "Bumblebee";
-            bugMatch = "Bumblebee";
-        } else if (totalScore >= 5 || totalScore <= 7) {
-            bugMatch.textContent = "Ladybug";
-            bugMatch = "Ladybug";
-        } else if (totalScore >= 8 || totalScore <= 10) {
-            bugMatch.textContent = "Butterfly";
-            bugMatch = "Butterfly";
-        } else if (totalScore >= 11 || totalScore <= 13) {
-            bugMatch.textContent = "Ant";
-            bugMatch = "Ant";
-        } else if (totalScore >= 14 || totalScore <= 16) {
-            bugMatch.textContent = "Grasshopper";
-            bugMatch = "Grasshopper";
-        } else if (totalScore >= 17 || totalScore <= 18) {
-            bugMatch.textContent = "Dragonfly";
+        if (totalScore >= 3 && totalScore <= 4) {
+            bugMatchText.textContent = "Bumblebee";
+        } else if (totalScore >= 5 && totalScore <= 7) {
+            bugMatchText.textContent = "Ladybug";
+        } else if (totalScore >= 8 && totalScore <= 10) {
+            bugMatchText.textContent = "Butterfly";
+        } else if (totalScore >= 11 && totalScore <= 13) {
+            bugMatchText.textContent = "Ant";
+        } else if (totalScore >= 14 && totalScore <= 16) {
+            bugMatchText.textContent = "Grasshopper";
+        } else if (totalScore >= 17 && totalScore <= 18) {
+            bugMatchText.textContent = "Dragonfly";
+        } else {
+            bugMatchText.textContent = "Unknown";
         }
 
         resultDiv.style.display = 'block';
     }
+
+    function indexToBugName(index) {
+        // Map index to bug name
+        var names = ["Bumblebee", "Ladybug", "Butterfly", "Ant", "Grasshopper", "Dragonfly"];
+        return names[index] || "Unknown";
+    }
+
 </script>
 
 </body>
