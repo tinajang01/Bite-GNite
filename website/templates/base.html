@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bite GoodNite</title>
     <style>
+      @font-face {
+        font-family: 'gamey';
+        src: url('/static/gameyfont.woff') format('woff'),
+        url('/static/gameyfont.TTF') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'contenty';
+        src: url('contentfont.TTF') format('truetype');
+        font-display: swap;
+}
       body {
-        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208451868167110656/file-0v7XVYHDpW0QUzX2tM4cbwIE.png?ex=65e35581&is=65d0e081&hm=94051762874c9a18ff7ff82007ebb0675ab76aa2464735ed8bbd81d4b25ce1ab&");
+        background-image: url("https://cdn.discordapp.com/attachments/745380022658924554/1208668709267177503/file-E849YQosyYo1bOdMSDSKO0PQ.png?ex=65e41f74&is=65d1aa74&hm=4c4d04aa2eb7d90f8905169968e54bdcad28a7846ccaaf132a9944514485bd95&");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -17,22 +28,40 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Arial, sans-serif;
+        font-family: gamey;
     }
 
+    .button-container {
+      position: absolute; /* Enables precise positioning */ 
+      top: 75%;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
     button {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      margin: 10px;
-      padding: 10px 40px;
+      
+      font-family: gamey;
+      font-size: 3em;
+      background-image: url('https://cdn.discordapp.com/attachments/1208236684081107005/1208623786199617536/eadc07619779c30133ca19bbdf888695.png?ex=65e3f59d&is=65d1809d&hm=ba5ed5c3b1ff689c286d2285b82a874d9427dff873dd5305320803dc23927462&');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150% 150%; /* Scales the image larger than its container */
+      display: inline-block;
+      color: brown;
+      margin: 0px 20;
+      padding: 10px 15px;
+      border-radius: 4%;
+      border: 4px solid brown;
     }
     </style>
 </head>
 
 <body>
-  <a href="http://127.0.0.1:5000/identifybite"><button type="button">Upload your bug bite!</button></a>
+  <div class="button-container">
+  <a href="http://127.0.0.1:5000/identifybite"><button type="button">What bit me?!</button></a>
   <!-- <a href="http://127.0.0.1:5000/tinderbug"><button type="button">Find your match</button></a> -->
   <a href="http://127.0.0.1:5000/infobug"><button type="button">What bug is this?</button></a>
+  </div>
 </body>
 
 </html>
