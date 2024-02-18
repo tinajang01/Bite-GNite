@@ -33,4 +33,25 @@ def identify():
             return render_template('identify.html', error=str(e))
     else:
         return render_template('identify.html')
-    
+
+@views.route('/infobug')
+def photo_gallery():
+    return render_template("photo_gallery.html") 
+
+@views.route('/tinderbug', methods=['POST'])
+def input_page():
+    if request.method =='POST':
+        try:
+            return render_template("tinder_input.html")
+        except Exception as e:
+            return render_template("tinder_input.html", errr)
+#     return render_template('tinder_input.html')
+
+# def next_step():
+#     input1 = request.form.get('input1')
+#     input2 = request.form.get('input2')
+
+#     if input1:
+#         return render_template("tinder.html")
+#     else:
+#         return render_template("tinder.html")

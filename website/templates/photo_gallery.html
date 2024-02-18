@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery</title>
+<style>
+    body {
+        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208619148993634334/DALLE_2024-02-17_22.40.51_-_Create_an_image_depicting_the_inside_pages_of_a_notebook_in_landscape_format_with_a_whimsical_pastel_theme_that_matches_the_vibes_of_cute_cartoonish.webp?ex=65e3f14c&is=65d17c4c&hm=3176fe39ed6bfaf73e18143cae940cf9a5227f7b52a6b359581eeebdad9a201a&");
+        width: 1692px;
+        height: 924px;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .thumbnail {
+        margin: 10px;
+        cursor: pointer;
+    }
+    .thumbnail img {
+        width: 300px; 
+        height: auto; 
+        border: 5px solid #cccccc;
+        box-shadow: 0 0 8px 8px #cccccc;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(185, 185, 185);
+        background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+    .modal-content img {
+        width: 100%;
+        height: auto;
+    }
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    #caption {
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+<h2>Photo Gallery</h2>
+
+<div class="gallery">
+    <div class="thumbnail" onclick="openModal('Bumblebee', 'Bumblebees are so adorable omg!')">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208611484448460870/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3ea28&is=65d17528&hm=b4e810d06a9e8748a2fe702c316cf90665dba99d786f8ce43ca7544bacdb3e17&" alt="Photo 1">
+    </div>
+    <div class="thumbnail" onclick="openModal('Ladybug', 'Photo 2 Description')">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208611484830138468/DALLE_2024-02-17_22.08.16_-_Create_a_cute_cartoonish_ladybug_with_a_whimsical_and_pastel_color_palette._The_ladybug_should_have_accurate_anatomical_features_and_proportions_inc.webp?ex=65e3ea28&is=65d17528&hm=8c00a7c4cea50db689205cf96904e674ec1767b8cef3e7f5c0a9ff1f256a373e&" alt="Photo 2">
+    </div>
+    <div class="thumbnail" onclick="openModal('Grasshopper', 'Photo 3 Description')">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612315147010048/DALLE_2024-02-17_22.13.31_-_Create_a_cute_cartoonish_grasshopper_with_a_whimsical_and_pastel_color_palette._The_grasshopper_should_have_accurate_anatomical_features_and_proporti.webp?ex=65e3eaee&is=65d175ee&hm=fa5e6ca1ce74b96141f83a0e01dd978d3f890ef1141d993e176ec2ccc0b93ec8&" alt="Photo 2">
+    </div>
+    <div class="thumbnail" onclick="openModal('Dragonfly', 'Photo 4 Description')">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612315579285634/DALLE_2024-02-17_22.13.22_-_Create_a_cute_cartoonish_dragonfly_with_a_whimsical_and_pastel_color_palette._The_dragonfly_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3eaee&is=65d175ee&hm=29e36ffcc2d31a0e23135a48ddb6bfc9a9095b55e93fc27c435337fed477c5e8&" alt="Photo 2">
+    </div>
+    <div class="thumbnail" onclick="openModal('Ant', 'Photo 5 Description')">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612316027953172/DALLE_2024-02-17_22.13.07_-_Create_a_cute_cartoonish_ant_with_a_whimsical_and_pastel_color_palette._The_ant_should_have_accurate_anatomical_features_and_proportions_including_t.webp?ex=65e3eaef&is=65d175ef&hm=25cf86cdf3433749d8322a8f931445ed41b0acff738d4196d1fbefeec1680f80&" alt="Photo 2">
+    </div>
+    <div class="thumbnail" onclick="openModal('Butterfly', 'Photo 6 Description')">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612316438859846/DALLE_2024-02-17_22.12.50_-_Create_a_cute_cartoonish_butterfly_with_a_whimsical_and_pastel_color_palette._The_butterfly_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3eaef&is=65d175ef&hm=f749cd2b87d278ee9e469775a0d378d18a77fa517f3f05dce954350cf7aefb69&" alt="Photo 2">
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img id="modalImg" src="" alt="">
+        <div id="caption"></div>
+    </div>
+</div>
+
+<script>
+    function openModal(imgSrc, description) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImg");
+        var captionText = document.getElementById("caption");
+        modal.style.display = "block";
+        modalImg.src = imgSrc;
+        captionText.innerHTML = description;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
