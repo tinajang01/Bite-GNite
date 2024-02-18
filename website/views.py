@@ -17,7 +17,7 @@ categories = ['flea', 'mosquito', 'tick']
 def home():
     return render_template("home.html")
 
-@views.route('/pic', methods=['GET', 'POST'])
+@views.route('/identifybite', methods=['GET', 'POST'])
 def identify():
     if request.method =='POST':
         try:
@@ -28,9 +28,9 @@ def identify():
             flat_data=np.array(flat_data)
             y_out=model.predict(flat_data)
             category=categories[y_out[0]]
-            return render_template("home.html", prediction=category, image_url=url)
+            return render_template("identify.html", prediction=category, image_url=url)
         except Exception as e:
-            return render_template('home.html', error=str(e))
+            return render_template('identify.html', error=str(e))
     else:
-        return render_template('home.html')
+        return render_template('identify.html')
     
