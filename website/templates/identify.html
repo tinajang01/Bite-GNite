@@ -11,23 +11,36 @@
         <input type="text" name="image_url" placeholder="Enter Image URL" required>
         <input type="submit" value="Identify">
     </form>
-    <dev class="bod">
     {% if prediction %}
-        <h2>You were bitten by a {{ prediction }}</h2>
-        <img src="{{ image_url }}" alt="Bug Bite Image">
-        {% if prediction == 'tick'%}
-        <h3>go see a doctor</h3>
-        <img src="https://cdn-icons-png.flaticon.com/512/4982/4982507.png" alt="Tick Image">
-        {% endif %}
-        {% if prediction == 'mosquito'%}
-        <h3>mosquitoes are so common</h3>
-        <img src="https://static.vecteezy.com/system/resources/previews/024/249/338/original/mosquito-isolated-on-a-transparent-background-free-png.png" alt="Mosq Image">
-        {% endif %}
-        {% if prediction == 'flea'%}
-        <h3>bro needs to flea</h3>
-        <img src="https://static.vecteezy.com/system/resources/previews/024/249/338/original/mosquito-isolated-on-a-transparent-background-free-png.png" alt="Mosq Image">
-        {% endif %}
+        <div class="bod">
+            <h1>You were most likely bitten by a {{ prediction }}</h1>
+            <img src="{{ image_url }}" alt="Bug Bite Image">
+            {% if prediction == 'tick'%}
+            <h3>A rash ressembling a bull-eye is a common sign of Lyme disease! </h3>
+            <h3>You should definitely see a doc!</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/4982/4982507.png" alt="Tick Image">
+            <a href="https://www.mayoclinic.org/first-aid/first-aid-tick-bites/basics/art-20056671" class="image-button">
+                <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208649853903700018/file-xyICpPio4fkzk9legnImz6a5.png?ex=65e40de4&is=65d198e4&hm=b107e539c242eebda06f577d00318fb65d6e8fdd20c458feb594f2d17eaa8ab1&" alt="Button Image">
+            </a>
+            {% endif %}
+            {% if prediction == 'mosquito'%}
+            <h3>Mosquito bites usually disappear after 3-4 days,</h3>
+            <h3>If you start developing high fever or headaches, you should see a doc!</h3>
+            <img src="https://static.vecteezy.com/system/resources/previews/024/249/338/original/mosquito-isolated-on-a-transparent-background-free-png.png" alt="Mosq Image">
+            <a href="https://www.cdc.gov/mosquitoes/mosquito-bites/symptoms.html" class="image-button">
+                <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208649853903700018/file-xyICpPio4fkzk9legnImz6a5.png?ex=65e40de4&is=65d198e4&hm=b107e539c242eebda06f577d00318fb65d6e8fdd20c458feb594f2d17eaa8ab1&" alt="Button Image">
+            </a>
+            {% endif %}
+            {% if prediction == 'flea'%}
+            <h3>The bite will be gone in one or two days.</h3>
+            <h3>Symptoms rarely exceed a nasty rash!</h3>
+            <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7937655/flea-clipart-md.png">
+            <a href="https://www.betterhealth.vic.gov.au/health/conditionsandtreatments/fleas#:~:text=Treatment%20for%20flea%20bites,-Suggestions%20to%20treat&text=Wash%20the%20bites%20with%20antiseptic,medications%20to%20reduce%20the%20swelling" class="image-button">
+                <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208649853903700018/file-xyICpPio4fkzk9legnImz6a5.png?ex=65e40de4&is=65d198e4&hm=b107e539c242eebda06f577d00318fb65d6e8fdd20c458feb594f2d17eaa8ab1&" alt="Button Image">
+            </a>
+            {% endif %}
+        </div>
     {% endif %}
-    </dev>
+    <a href="/" class="back-button">Back</a>
 </body>
 </html>
