@@ -3,12 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photo Gallery</title>
+<title style="text-align:center;">Photo Gallery</title>
+
 <style>
     body {
         background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208619148993634334/DALLE_2024-02-17_22.40.51_-_Create_an_image_depicting_the_inside_pages_of_a_notebook_in_landscape_format_with_a_whimsical_pastel_theme_that_matches_the_vibes_of_cute_cartoonish.webp?ex=65e3f14c&is=65d17c4c&hm=3176fe39ed6bfaf73e18143cae940cf9a5227f7b52a6b359581eeebdad9a201a&");
-        width: 1692px;
-        height: 924px;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        font-family: Arial, sans-serif;
     }
     .gallery {
         display: flex;
@@ -21,7 +28,9 @@
     }
     .thumbnail img {
         width: 300px; 
+        margin: 10px;
         height: auto; 
+        position: center;
         border: 5px solid #cccccc;
         box-shadow: 0 0 8px 8px #cccccc;
     }
@@ -70,9 +79,10 @@
 </head>
 <body>
 
-<h2>Photo Gallery</h2>
+<h2 style="text-align: center;">Photo Gallery</h2>
 
-<div class="gallery">
+
+<div class="gallery" style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
     <div class="thumbnail" onclick="openModal('Bumblebee', 'Bumblebees are so adorable omg!')">
         <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208611484448460870/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3ea28&is=65d17528&hm=b4e810d06a9e8748a2fe702c316cf90665dba99d786f8ce43ca7544bacdb3e17&" alt="Photo 1">
     </div>
