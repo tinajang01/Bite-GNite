@@ -6,8 +6,31 @@
 <title style="text-align:center;">Photo Gallery</title>
 
 <style>
+    @font-face {
+        font-family: 'gamey';
+        src: url('/static/gameyfont.woff') format('woff'),
+        url('/static/gameyfont.TTF') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'contenty';
+        src: url('/static/contentfont.TTF') format('truetype');
+        font-display: swap;
+      }
+    h1 {
+        font-family: gamey;
+        font-size: 3em;
+        background-image: url('https://cdn.discordapp.com/attachments/1208236684081107005/1208703231111340063/eadc07619779c30133ca19bbdf888695.png?ex=65e43f9a&is=65d1ca9a&hm=fb2db1e095f40afdebe19e7fd393018b47a722bd3ef94131dbf18c8801a8a185&');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 150% 150%; /* Scales the image larger than its container */
+        display: inline-block;
+        color: brown;
+        margin: 15px 0;
+        padding: 10px 15px;
+    }
     body {
-        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208619148993634334/DALLE_2024-02-17_22.40.51_-_Create_an_image_depicting_the_inside_pages_of_a_notebook_in_landscape_format_with_a_whimsical_pastel_theme_that_matches_the_vibes_of_cute_cartoonish.webp?ex=65e3f14c&is=65d17c4c&hm=3176fe39ed6bfaf73e18143cae940cf9a5227f7b52a6b359581eeebdad9a201a&");
+        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208705254523412551/image.png?ex=65e4417d&is=65d1cc7d&hm=ba469cefea331c9de4ca17b6dd55833c75440447d78544e78e6d9b01b7b3ad69&");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -16,6 +39,27 @@
         height: 100vh;
         display: flex;
         font-family: Arial, sans-serif;
+    }
+    .back-button {
+    position: fixed; /* Stays in place during scrolling */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: yellow; /* Matches the submit button */
+    color: orange; /* Text color to match the submit button */
+    border: 3px solid orange; /* Border to match the submit button */
+    border-radius: 15px; /* Rounded corners to match the submit button */
+    padding: 10px 20px; /* Padding to increase size */
+    text-decoration: none; /* Removes underline from link */
+    font-family: 'contenty'; /* Matches the font family of the submit button */
+    font-size: 1.5em; /* Matches the font size of the submit button */
+    cursor: pointer; /* Changes cursor to pointer to indicate clickability */
+    display: inline-block; /* Allows setting dimensions */
+    text-align: center; /* Centers text inside the button */
+    }
+
+    .back-button:hover {
+    background-color: orange; /* Change color on hover for visual feedback */
+    color: yellow;
     }
     .gallery {
         display: flex;
@@ -31,26 +75,25 @@
         margin: 10px;
         height: auto; 
         position: center;
-        border: 5px solid #cccccc;
-        box-shadow: 0 0 8px 8px #cccccc;
     }
     .modal {
         display: none;
         position: fixed;
         z-index: 1;
         padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        left: 50;
+        top: 30;
+        width: 50%;
+        height: 60%;
         overflow: auto;
-        background-color: rgb(185, 185, 185);
-        background-color: rgba(0,0,0,0.9);
+        background-color: orange;
+        background-color: rgba(100, 36, 1, 0.9);
+        border-radius: 5%;
     }
     .modal-content {
         margin: auto;
         display: block;
-        width: 80%;
+        width: 60%;
         max-width: 700px;
     }
     .modal-content img {
@@ -73,34 +116,34 @@
         cursor: pointer;
     }
     #caption {
+        font-family: contenty;
         color: white;
     }
 </style>
 </head>
 <body>
 
-<h2>Photo Gallery</h2>
+<h1>Photo Gallery</h1>
 
 <!-- style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto;" -->
 <div class ="gallery">
     <div class="thumbnail" onclick="openModal('Bumblebee', '<p>Bumblebees</p><p> Meet the buzzing heroes of our gardens and fields: bumblebees! These fluffy insects play a vital role in our environment by helping flowers grow and making sure plants make babies. Here are some fun facts about bumblebees:</p><p>1. Pollen Pros: Bumblebees shake flowers to help them make seeds, like shaking a maraca at a party!</p><p>2. Plant Helpers: They help flowers make babies by spreading pollen from one flower to another.</p>')">
-        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208611484448460870/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3ea28&is=65d17528&hm=b4e810d06a9e8748a2fe702c316cf90665dba99d786f8ce43ca7544bacdb3e17&" alt="Photo 1">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208699734664019998/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_h.png?ex=65e43c59&is=65d1c759&hm=cab534d84997db42d80342db3f4585a9eb1ae44e0196bb172c54ce6f38792210&">
     </div>
     <div class="thumbnail" onclick="openModal('Ladybug', '<p>Let`s talk about the lovable little bugs that bring luck to our gardens: ladybugs! These colorful critters are more than just cute—they`re also superheroes for our plants. Here are some fun facts about ladybugs:</p><p>1. Tiny Pest Control: Ladybugs are like tiny garden superheroes! They gobble up pesky aphids and other plant-eating bugs, keeping our gardens healthy.</p><p>2. Lucky Charms: In many cultures, ladybugs are considered symbols of good luck and prosperity. Finding one in your garden is like discovering a little lucky charm!</p>')">
-        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208611484830138468/DALLE_2024-02-17_22.08.16_-_Create_a_cute_cartoonish_ladybug_with_a_whimsical_and_pastel_color_palette._The_ladybug_should_have_accurate_anatomical_features_and_proportions_inc.webp?ex=65e3ea28&is=65d17528&hm=8c00a7c4cea50db689205cf96904e674ec1767b8cef3e7f5c0a9ff1f256a373e&" alt="Photo 2">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208699818482860033/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_h.png?ex=65e43c6d&is=65d1c76d&hm=80452b335878965532cb0ab2ff65d3f959411f19d0306687e570eb79c256c020&">
     </div>
     <div class="thumbnail" onclick="openModal('Grasshopper', '<p>The leaping legends of the insect kingdom! These fascinating critters are more than just garden jumpers—they play important roles in ecosystems around the world. Here are some fun facts about grasshoppers:</p><p>1. Musical Maestros: Grasshoppers are known for their musical talents. They produce sounds by rubbing their wings or legs together, creating melodies that fill the air on warm summer nights.</p><p>2. Feasting Farmers: While some grasshoppers can be pests to farmers, munching on crops like wheat and corn, they also play a vital role in nutrient cycling by recycling plant matter back into the soil.</p>')">
-        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612315147010048/DALLE_2024-02-17_22.13.31_-_Create_a_cute_cartoonish_grasshopper_with_a_whimsical_and_pastel_color_palette._The_grasshopper_should_have_accurate_anatomical_features_and_proporti.webp?ex=65e3eaee&is=65d175ee&hm=fa5e6ca1ce74b96141f83a0e01dd978d3f890ef1141d993e176ec2ccc0b93ec8&" alt="Photo 2">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208699891304366170/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_h.png?ex=65e43c7e&is=65d1c77e&hm=ffc34aec393ee8851ae06066d0d549701d7d848235a369744844e9822bf40414&">
     </div>
     <div class="thumbnail" onclick="openModal('Dragonfly', '<p>Let`s take flight into the enchanting world of dragonflies, the magical aviators of ponds and streams. These mesmerizing insects are more than just pretty wings—they`re fierce predators and vital players in aquatic ecosystems. Here are some fun facts about dragonflies:</p><p>1. Life Underwater: While we often see them zipping around ponds and streams, dragonflies spend most of their lives underwater as nymphs. They`re like aquatic superheroes in disguise!</p><p>2. Symbol of Transformation: In many cultures, dragonflies symbolize transformation and adaptability. They remind us of the beauty and resilience found in change.</p>')">
-        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612315579285634/DALLE_2024-02-17_22.13.22_-_Create_a_cute_cartoonish_dragonfly_with_a_whimsical_and_pastel_color_palette._The_dragonfly_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3eaee&is=65d175ee&hm=29e36ffcc2d31a0e23135a48ddb6bfc9a9095b55e93fc27c435337fed477c5e8&" alt="Photo 2">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208699982475960321/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_h.png?ex=65e43c94&is=65d1c794&hm=8087f651123648a581d0370c581606ffca18759219b52770748b3b957e920809&">
     </div>
     <div class="thumbnail" onclick="openModal('Ant', '<p>Tiny titans of teamwork! These incredible insects are more than just picnickers—they`re essential members of ecosystems all around the world. Here are some fun facts about ants:</p><p>1. Farmers at Heart: Some ants are skilled farmers, cultivating fungi as their food source. They carefully tend to their fungal gardens, ensuring a bountiful harvest for the colony.</p><p>2. Communication Geniuses: Ants communicate with each other using a variety of signals, including chemical scents called pheromones and even vibrations. It`s like they`re chatting with their own secret language!</p>')">
-        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612316027953172/DALLE_2024-02-17_22.13.07_-_Create_a_cute_cartoonish_ant_with_a_whimsical_and_pastel_color_palette._The_ant_should_have_accurate_anatomical_features_and_proportions_including_t.webp?ex=65e3eaef&is=65d175ef&hm=25cf86cdf3433749d8322a8f931445ed41b0acff738d4196d1fbefeec1680f80&" alt="Photo 2">
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208700052286079066/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_h.png?ex=65e43ca5&is=65d1c7a5&hm=1a0e8c79da0cea698927b62b5258bb3b12e083cc412116e7f9f15f494900ba11&">
     </div>
     <div class="thumbnail" onclick="openModal('Butterfly', '<p>Let`s flutter into the enchanting world of butterflies, the delicate dancers of the air! These graceful insects are more than just pretty wings—they`re symbols of transformation and vital pollinators. Here are some captivating facts about butterflies:</p><p>1. Pollination Partners: Butterflies play a crucial role in pollination, transferring pollen from flower to flower as they sip nectar. They`re like flying gardeners, helping plants grow and thrive.</p><p>2. Global Beauties: Butterflies are found on every continent except Antarctica, showcasing their adaptability to a wide range of habitats. They`re like ambassadors of beauty, spreading joy across the globe.</p>')">
-        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208612316438859846/DALLE_2024-02-17_22.12.50_-_Create_a_cute_cartoonish_butterfly_with_a_whimsical_and_pastel_color_palette._The_butterfly_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3eaef&is=65d175ef&hm=f749cd2b87d278ee9e469775a0d378d18a77fa517f3f05dce954350cf7aefb69&" alt="Photo 2">
-    </div>
+        <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208700663136260146/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_h.png?ex=65e43d36&is=65d1c836&hm=32c76e63f695a0802d4336fdfb14fb0220f38752ad47206cfa2a1e4ba3500154&">
 </div>
 
 <div id="myModal" class="modal">
@@ -126,6 +169,6 @@
         modal.style.display = "none";
     }
 </script>
-
+<a href="/" class="back-button">Back</a>
 </body>
 </html>
