@@ -6,8 +6,12 @@
 <title>Find your match!</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <style>
+    h1{
+        color:brown;
+    }
+
     body {
-        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208619148993634334/DALLE_2024-02-17_22.40.51_-_Create_an_image_depicting_the_inside_pages_of_a_notebook_in_landscape_format_with_a_whimsical_pastel_theme_that_matches_the_vibes_of_cute_cartoonish.webp?ex=65e3f14c&is=65d17c4c&hm=3176fe39ed6bfaf73e18143cae940cf9a5227f7b52a6b359581eeebdad9a201a&");
+        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208695925698994227/file-fiutMW6Cgx4MRC2rKZwBOEJ8.png?ex=65e438cd&is=65d1c3cd&hm=d9dca5d9ab67db81dfacfab49ac7467964bbf1859136394e49bfeca83a9f0539&");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -19,14 +23,18 @@
         padding: 0;
     }
     .container {
-        max-width: 600px;
+        max-width: 650px;
         margin: 50px auto;
         padding: 20px;
-        background-color: rgba(92, 90, 90, 0.5);
+        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208690700154183780/file-YiptNfJ1KxMQhutrfwIZr5SK.png?ex=65e433ef&is=65d1beef&hm=d142f2ed773f3512d24e2351d62bf92d297ebca8ab6883336fcb7f91ebb61bcf&");
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    h1, h2 {
+    h1, h2, p {
+        color: brown;
         text-align: center;
     }
     .question {
@@ -36,6 +44,7 @@
         margin-bottom: 10px;
     }
     .answer-options {
+        color: brown;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -43,34 +52,35 @@
     .answer-option {
         margin: 10px;
         padding: 10px 20px;
-        border: 2px solid #ccc;
+        border: 2px solid brown;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
     .answer-option.selected {
-        background-color: #007bff;
-        color: #fff;
+        background-color: brown;
+        color: orange;
     }
     .answer-option:hover {
-        background-color: #f9f9f9;
+        background-color: brown;
     }
     #result {
         display: none;
     }
     #submit-button {
+        font-family: contenty;
         display: block;
         margin: 20px auto;
         padding: 10px 20px;
-        background-color: #599953;
-        color: #fff;
+        background-color: orange;
+        color: yellow;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
     #submit-button:hover {
-        background-color: #0056b3;
+        background-color: brown;
     }
 </style>
 </head>
@@ -116,8 +126,8 @@
         <button type="submit" id="submit-button">Submit</button>
     </form>
     <div id="result">
-        <h2>Your Cute Bug Match:</h2>
-        <p id="bug-match"></p>
+        <p>Your Cute Bug Match:</p>
+        <h2 id="bug-match"></h2>
     </div>
 </div>
 
@@ -177,7 +187,7 @@
     }
 
 </script>
-
+<a href="/" class="back-button">Back</a>
 </body>
 </html>
 
