@@ -81,9 +81,9 @@
 
 <h2>Photo Gallery</h2>
 
-
-<div class="gallery" style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
-    <div class="thumbnail" onclick="openModal('Bumblebee', 'Bumblebees are so adorable omg!')">
+<!-- style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto;" -->
+<div class="gallery">
+    <div class="thumbnail" onclick="openModal('Bumblebee', ['Bumblebees are so adorable omg!'])">
         <img src="https://cdn.discordapp.com/attachments/1208236684081107005/1208611484448460870/DALLE_2024-02-17_22.08.19_-_Create_a_cute_cartoonish_bumblebee_with_a_whimsical_and_pastel_color_palette._The_bumblebee_should_have_accurate_anatomical_features_and_proportions.webp?ex=65e3ea28&is=65d17528&hm=b4e810d06a9e8748a2fe702c316cf90665dba99d786f8ce43ca7544bacdb3e17&" alt="Photo 1">
     </div>
     <div class="thumbnail" onclick="openModal('Ladybug', 'Photo 2 Description')">
@@ -118,6 +118,11 @@
         var captionText = document.getElementById("caption");
         modal.style.display = "block";
         modalImg.src = imgSrc;
+
+        var description = '';
+        descriptions.forEach(function(description) {
+            descriptionHTML += '<p>' + description + '</p>';
+        });
         captionText.innerHTML = description;
     }
 

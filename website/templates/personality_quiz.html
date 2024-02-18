@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find your match!</title>
+<style>
+    body {
+        background-image: url("https://cdn.discordapp.com/attachments/1208236684081107005/1208619148993634334/DALLE_2024-02-17_22.40.51_-_Create_an_image_depicting_the_inside_pages_of_a_notebook_in_landscape_format_with_a_whimsical_pastel_theme_that_matches_the_vibes_of_cute_cartoonish.webp?ex=65e3f14c&is=65d17c4c&hm=3176fe39ed6bfaf73e18143cae940cf9a5227f7b52a6b359581eeebdad9a201a&");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(92, 90, 90, 0.5);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        margin-bottom: 10px;
+    }
+    .answer-options {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .answer-option {
+        margin: 10px;
+        padding: 10px 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .answer-option.selected {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .answer-option:hover {
+        background-color: #f9f9f9;
+    }
+    #result {
+        display: none;
+    }
+    #submit-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #599953;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    #submit-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Find your match!</h1>
+    <form id="quiz-form" onsubmit="submitQuiz(event)">
+        <!-- // 1: bumblebee, 2: ladybug, 3: butterfly, 4: ant, 5: grasshopper, 6: dragonfly -->
+        <div class="question">
+            <p>What is your favorite color?</p>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(1, this)">Yellow</div>
+                <div class="answer-option" onclick="selectAnswer(2, this)">Red</div>
+                <div class="answer-option" onclick="selectAnswer(6, this)">Blue</div>
+                <div class="answer-option" onclick="selectAnswer(3, this)">Pink</div>
+                <div class="answer-option" onclick="selectAnswer(4, this)">Brown</div>
+                <div class="answer-option" onclick="selectAnswer(5, this)">Green</div>
+            </div>
+        </div>
+        <div class="question">
+            <p>What is your favourite activity?</p>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(3, this)">Painting</div>
+                <div class="answer-option" onclick="selectAnswer(1, this)">Singing</div>
+                <div class="answer-option" onclick="selectAnswer(2, this)">Reading</div>
+                <div class="answer-option" onclick="selectAnswer(5, this)">Studying</div>
+                <div class="answer-option" onclick="selectAnswer(4, this)">Going to the gym</div>
+                <div class="answer-option" onclick="selectAnswer(6, this)">Playing sports</div>
+            </div>
+        </div>
+        <div class="question">
+            <p>Which environment do you prefer?</p>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(6, this)">Lakeside</div>
+                <div class="answer-option" onclick="selectAnswer(4, this)">Forests</div>
+                <div class="answer-option" onclick="selectAnswer(2, this)">Fields</div>
+                <div class="answer-option" onclick="selectAnswer(1, this)">Meadows</div>
+                <div class="answer-option" onclick="selectAnswer(5, this)">Park</div>
+                <div class="answer-option" onclick="selectAnswer(3, this)">Gardens</div>
+            </div>
+        </div>
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+    <div id="result">
+        <h2>Your Cute Bug Match:</h2>
+        <p id="bug-match"></p>
+    </div>
+</div>
+
+<script>
+    var scores = [0, 0, 0, 0, 0, 0]; // Initialize scores for each bug
+
+    function selectAnswer(score, button) {
+        // Remove selected class from all options in the same question
+        var answerOptions = button.parentElement.getElementsByClassName('answer-option');
+        for (var i = 0; i < answerOptions.length; i++) {
+            answerOptions[i].classList.remove('selected');
+        }
+
+        // Add selected class to the clicked option
+        button.classList.add('selected');
+
+        // Update the score for the bug based on the selected option
+        scores[score - 1]++;
+    }
+
+    function submitQuiz(event) {
+        event.preventDefault();
+        showResult();
+    }
+
+    function showResult() {
+        var resultDiv = document.getElementById('result');
+        var bugMatch = document.getElementById('bug-match');
+        var totalScore = scores.reduce((a, b) => a + b, 0);
+
+        if (totalScore >= 3 || totalScore <= 4) {
+            bugMatch.textContent = "Bumblebee";
+            bugMatch = "Bumblebee";
+        } else if (totalScore >= 5 || totalScore <= 7) {
+            bugMatch.textContent = "Ladybug";
+            bugMatch = "Ladybug";
+        } else if (totalScore >= 8 || totalScore <= 10) {
+            bugMatch.textContent = "Butterfly";
+            bugMatch = "Butterfly";
+        } else if (totalScore >= 11 || totalScore <= 13) {
+            bugMatch.textContent = "Ant";
+            bugMatch = "Ant";
+        } else if (totalScore >= 14 || totalScore <= 16) {
+            bugMatch.textContent = "Grasshopper";
+            bugMatch = "Grasshopper";
+        } else if (totalScore >= 17 || totalScore <= 18) {
+            bugMatch.textContent = "Dragonfly";
+            bugMatch = "Dragonfly";
+        }
+        // if (totalScore >= 3 && totalScore <= 4) {
+        //     bugMatch.textContent = "Bumblebee";
+        //     bugMatch = "Bumblebee";
+        // } else if (totalScore >= 5 && totalScore <= 7) {
+        //     bugMatch.textContent = "Ladybug";
+        //     bugMatch = "Ladybug";
+        // } else if (totalScore >= 8 && totalScore <= 10) {
+        //     bugMatch.textContent = "Butterfly";
+        //     bugMatch = "Butterfly";
+        // } else if (totalScore >= 11 && totalScore <= 13) {
+        //     bugMatch.textContent = "Ant";
+        //     bugMatch = "Ant";
+        // } else if (totalScore >= 14 && totalScore <= 16) {
+        //     bugMatch.textContent = "Grasshopper";
+        //     bugMatch = "Grasshopper";
+        // } else if (totalScore >= 17 && totalScore <= 18) {
+        //     bugMatch.textContent = "Dragonfly";
+        //     bugMatch = "Dragonfly";
+        // }
+
+        resultDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
+
