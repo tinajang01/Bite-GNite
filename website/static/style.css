@@ -12,10 +12,22 @@ body {
 </body>
 </html> */
 /* Add your styling here */
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+@font-face {
+  font-family: 'gamey';
+  src: url(C:\Users\jessi\Documents\1-BiteGnite\Bite-GNite\assets\gameyfont.TTF) format('truetype');
+  font-display: swap; /* Improves text visibility while custom fonts are loading */
 }
+
+body {
+  font-family: gamey, sans-serif;
+  text-align: center;
+  background-image: url('https://cdn.discordapp.com/attachments/745380022658924554/1208593632534470706/c4da0cbf-5bd7-46d3-8507-9768360d2ca6.webp?ex=65e3d988&is=65d16488&hm=6be82d672ed8f14cb418fb7ba2e914000de337f9eae669de6776fccf7ff30c64&');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 
 input[type="text"] {
   margin: 10px 0;
