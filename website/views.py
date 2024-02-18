@@ -17,7 +17,7 @@ categories = ['flea', 'mosquito', 'tick']
 def home():
     return render_template("home.html")
 
-@views.route('/identify-by-pic', methods=['GET', 'POST'])
+@views.route('/pic', methods=['GET', 'POST'])
 def identify():
     if request.method =='POST':
         try:
